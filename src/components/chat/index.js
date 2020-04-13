@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-
+import ReactDOM from 'react-dom'
 
 class Chat extends React.Component {
     constructor(props) {
@@ -16,13 +16,17 @@ class Chat extends React.Component {
     }
   
     handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value);
+        ReactDOM.render(
+            <li>{this.state.value}</li>,
+            document.getElementById('root')
+          )
       event.preventDefault();
     }
   
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
+        <div id='k'></div>
           <label>
             Chat
             <input type="text" value={this.state.value} onChange={this.handleChange} />
